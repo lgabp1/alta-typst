@@ -48,9 +48,6 @@
       }
     })
     .join(h(10pt))
-  [
-
-  ]
 }
 
 #let term(period, location) = context {
@@ -151,15 +148,15 @@
   )
   set text(9.7pt, font: "IBM Plex Sans")
   set page(
-    margin: (x: 54pt, y: 52pt),
+    margin: (x: 36pt, y: 36pt),
   )
 
   let body = {
-    [= #name]
-
-    if target() == "paged" {
-      findMe(links)
-    }
+    grid(
+      columns: (1fr, auto),
+      [= #name],
+      findMe(links),
+    )
 
     tagline
 
@@ -181,7 +178,7 @@
       author: name,
     )
     set page(
-      margin: (x: 54pt, y: 52pt),
+      margin: (x: 36pt, y: 36pt),
     )
 
     show heading.where(
