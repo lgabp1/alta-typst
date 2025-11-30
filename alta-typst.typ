@@ -138,14 +138,23 @@
 
 #let alta(
   name: "",
+  title: none,
   links: (),
   tagline: [],
   content,
+  footer: none,
 ) = {
-  set document(
-    title: name + "'s CV",
-    author: name,
-  )
+  if (title != none) {
+    set document(
+      title: title,
+      author: name,
+    )
+  } else {
+    set document(
+      title: name + "'s CV",
+      author: name,
+    )
+  }
   set text(9.7pt, font: "IBM Plex Sans")
   set page(
     margin: (x: 36pt, y: 36pt),
@@ -169,14 +178,25 @@
     } else {
       content
     }
+    // Render footer outside the columns so it can span full page width
+    if footer != none {
+      footer
+    }
   }
 
   // apply styling only for non-HTML output
   if target() == "paged" {
-    set document(
-      title: name + "'s CV",
-      author: name,
-    )
+    if (title != none) {
+      set document(
+        title: title,
+        author: name,
+      )
+    } else {
+      set document(
+        title: name + "'s CV",
+        author: name,
+      )
+    }
     set page(
       margin: (x: 36pt, y: 36pt),
     )

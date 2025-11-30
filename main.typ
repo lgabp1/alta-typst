@@ -81,39 +81,32 @@
     - #lorem(4)
     - #lorem(4)
     
-  ] +
-  
-  place(
-      bottom,
-      clearance: 70pt,
-      float: true,
-      scope: "parent",
+    ],
+  footer: [
+    #grid(
+      columns: (1.2fr, 0.9fr, 1fr),
+      gutter: 15pt,
+        [
+          == Languages
+            - French -- Native
+            - English -- Full working proficiency
+        ],
+        [
+          == Hobbies
+            - #lorem(4)
+            - #lorem(4)
+        ],
+        [
+        ]
+    )
+    #let _radius = 160pt
+    #place(
+      bottom + right,
       [
-        #grid(
-          columns: (1.2fr, 0.9fr, 1fr),
-          gutter: 15pt,
-          [
-            == Languages
-              - French -- Native
-              - English -- Full working proficiency
-          ],
-          [
-            == Hobbies
-              - #lorem(4)
-              - #lorem(4)
-          ],
-          [
-          ]
-        )
-        #let _radius = 160pt
-        #place(
-          bottom + right,
-          [
-            #box(clip: true, stroke: 2pt + rgb("#3E0C87"), radius: _radius,
-            width: _radius, height: _radius,
-            image("photo.jpg", width: _radius))
-          ]
-        )
+        #box(clip: true, stroke: 2pt + rgb("#3E0C87"), radius: _radius,
+        width: _radius, height: _radius,
+        image("photo.jpg", width: _radius))
       ]
     )
+    ]
 )
